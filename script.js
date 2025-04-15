@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const redLogo = document.querySelector('.logo-text.red');
     const cyanLogo = document.querySelector('.logo-text.cyan');
-    const redText = document.querySelector('.coming-soon-text.red');
-    const cyanText = document.querySelector('.coming-soon-text.cyan');
     
     // Random glitch effect
     function randomGlitch() {
@@ -15,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply to logo
         redLogo.style.transform = `translate(${redX}px, ${redY}px)`;
         cyanLogo.style.transform = `translate(${cyanX}px, ${cyanY}px)`;
-        
-        // Apply to text
-        redText.style.transform = `translate(${redX * 0.75}px, ${redY * 0.75}px)`;
-        cyanText.style.transform = `translate(${cyanX * 0.75}px, ${cyanY * 0.75}px)`;
         
         // Schedule next glitch
         setTimeout(randomGlitch, 1000 + Math.random() * 3000);
