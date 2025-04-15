@@ -5,9 +5,7 @@
 }
 
 body {
-    font-family: 'Archivo Black', sans-serif;
     background-color: #000;
-    color: #fff;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -26,74 +24,28 @@ body {
 }
 
 .logo-container {
-    position: relative;
-    width: min(90vw, 90vh);
-    height: min(50vw, 50vh);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
 }
 
 .logo {
-    position: relative;
-    font-size: min(15vw, 15vh);
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.logo-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.logo-text.white {
-    color: #fff;
-    z-index: 3;
-    mix-blend-mode: normal;
-}
-
-.logo-text.red {
-    color: #ff0044;
-    transform: translate(-4px, -2px);
-    z-index: 1;
-    mix-blend-mode: screen;
-}
-
-.logo-text.cyan {
-    color: #00ffff;
-    transform: translate(4px, 2px);
-    z-index: 2;
-    mix-blend-mode: screen;
+    height: auto;
+    display: block;
 }
 
 @media (max-width: 768px) {
-    .logo-text.red {
-        transform: translate(-3px, -1.5px);
-    }
-    .logo-text.cyan {
-        transform: translate(3px, 1.5px);
+    .logo-container {
+        max-width: 400px;
     }
 }
 
 @media (max-width: 480px) {
-    .logo-text.red {
-        transform: translate(-2px, -1px);
-    }
-    .logo-text.cyan {
-        transform: translate(2px, 1px);
+    .logo-container {
+        max-width: 300px;
     }
 }
