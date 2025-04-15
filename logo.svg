@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <style>
+    @font-face {
+      font-family: 'Archivo Black';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/archivoblack/v17/HTxqL289NzCGg4MzN6KJ7eW6CYyF-w.woff2) format('woff2');
+    }
+    .logo-text {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 72px;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1;
+      text-anchor: middle;
+    }
+    .red { fill: #ff0044; mix-blend-mode: screen; }
+    .cyan { fill: #00ffff; mix-blend-mode: screen; }
+    .white { fill: #ffffff; }
+  </style>
+  
+  <g transform="translate(300, 150)">
+    <text class="logo-text red" x="-4" y="-2" dy=".35em">CURSED<tspan x="-4" dy="72">WORKS</tspan></text>
+    <text class="logo-text cyan" x="4" y="2" dy=".35em">CURSED<tspan x="4" dy="72">WORKS</tspan></text>
+    <text class="logo-text white" x="0" y="0" dy=".35em">CURSED<tspan x="0" dy="72">WORKS</tspan></text>
+  </g>
+</svg>
