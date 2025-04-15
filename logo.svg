@@ -1,31 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
   <defs>
-    <!-- Distortion filter for warping effects -->
-    <filter id="displacementFilter">
-      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" seed="1" result="turbulence" />
-      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G" />
+    <!-- More intense blur for better glow -->
+    <filter id="blurRed" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" />
     </filter>
     
-    <!-- Noise texture filter -->
-    <filter id="noiseFilter">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0" result="noiseGray"/>
-      <feComposite operator="arithmetic" k1="0" k2="0.1" k3="0" k4="0" in="SourceGraphic" in2="noiseGray" result="noised"/>
+    <filter id="blurCyan" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" />
     </filter>
     
-    <!-- Glow effect -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite operator="over" in="SourceGraphic" in2="blur"/>
-    </filter>
-    
-    <!-- Slight blur for red and cyan layers -->
-    <filter id="blurRed">
-      <feGaussianBlur stdDeviation="1.2" />
-    </filter>
-    
-    <filter id="blurCyan">
-      <feGaussianBlur stdDeviation="1.2" />
+    <!-- Distortion filter with more pronounced effect -->
+    <filter id="distortion" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" seed="1" result="turbulence" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G" />
     </filter>
   </defs>
   
@@ -36,40 +23,39 @@
       font-weight: 400;
       src: url(https://fonts.gstatic.com/s/archivoblack/v17/HTxqL289NzCGg4MzN6KJ7eW6CYyF-w.woff2) format('woff2');
     }
-    .logo-text {
+    text {
       font-family: 'Archivo Black', sans-serif;
-      font-size: 72px;
+      font-size: 80px;
       font-weight: bold;
       text-transform: uppercase;
-      line-height: 1;
       text-anchor: middle;
     }
     .red { 
-      fill: #ff0044; 
-      mix-blend-mode: screen;
+      fill: #ff0055; 
       filter: url(#blurRed);
     }
     .cyan { 
       fill: #00ffff; 
-      mix-blend-mode: screen;
       filter: url(#blurCyan);
     }
     .white { 
       fill: #ffffff;
     }
-    .warped {
-      filter: url(#displacementFilter);
-    }
-    .container {
-      filter: url(#noiseFilter);
-    }
   </style>
   
-  <g class="container" transform="translate(300, 150)">
-    <g class="warped">
-      <text class="logo-text red" x="-5" y="-3" dy=".35em">CURSED<tspan x="-5" dy="72">WORKS</tspan></text>
-      <text class="logo-text cyan" x="5" y="3" dy=".35em">CURSED<tspan x="5" dy="72">WORKS</tspan></text>
-      <text class="logo-text white" x="0" y="0" dy=".35em">CURSED<tspan x="0" dy="72">WORKS</tspan></text>
-    </g>
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="black"/>
+  
+  <!-- Text with strong warping -->
+  <g filter="url(#distortion)" transform="translate(300, 150)">
+    <!-- Larger offset for more dramatic effect -->
+    <text class="red" x="-8" y="-5">CURSED</text>
+    <text class="red" x="-8" y="75">WORKS</text>
+    
+    <text class="cyan" x="8" y="-5">CURSED</text>
+    <text class="cyan" x="8" y="75">WORKS</text>
+    
+    <text class="white" x="0" y="-5">CURSED</text>
+    <text class="white" x="0" y="75">WORKS</text>
   </g>
 </svg>
